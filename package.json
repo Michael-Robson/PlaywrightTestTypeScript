@@ -1,0 +1,36 @@
+{
+  "name": "PlaywrightTask",
+  "version": "1.0.0",
+  "description": "QA Automation Engineer Challenge - Cloud Cypress login page written in Playwright",
+  "main": "index.js",
+  "repository": "https://github.com/Michael-Robson/PlaywrightTask",
+  "author": "Michael Robson",
+  "license": "MIT",
+  "private": true,
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "yarn lint:fix",
+    "*.{js,jsx,ts,tsx,scss,css,json,md}": "yarn format"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.37.1",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-playwright": "^0.16.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint ./ --ext .js,.ts",
+    "prettier:check": "prettier --check .",
+    "format": "prettier --write .",
+    "lint:fix": "yarn run lint --fix",
+    "beforePR": "yarn lint:fix && yarn format",
+    "allTestsHeadless": "yarn playwright test",
+    "allTests": "yarn playwright test --headed"
+  }
+}
